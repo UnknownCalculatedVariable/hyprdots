@@ -1,0 +1,71 @@
+//Waybar Configuration
+
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 1,
+
+  "modules-left": ["clock"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "network",
+    "bluetooth",
+    "power-profiles-daemon",
+    "battery",
+    "pulseaudio",
+  ],
+
+  //Modules Configuration:
+
+  "network": {
+    "format-wifi": "        ",
+    "on-click": "alacritty -e nmtui",
+  },
+  "bluetooth": {
+    "bluetooth-format": "    span font=\"Font Awesome 6 Free\">\uf294</span>    ",
+    "format": "<span font=\"Font Awesome 6 Free\">\uf294</span>",
+    "on-click": "blueman-manager",
+  },
+  "power-profiles-daemon": {
+    "format": "    {icon}    ",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
+  },
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "default": ["", "", ""],
+    },
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}",
+  },
+}
